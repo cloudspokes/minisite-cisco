@@ -7,6 +7,38 @@
   <script type="text/javascript">
    window.jQuery || document.write('\x3Cscript src="/scripts/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
 </script>
+
+<script>
+// <![CDATA[
+$(document).ready(function(e) {
+   // get the leaderboard
+   $.ajax({
+     type: 'GET',
+     url: "http://tc-leaderboard.herokuapp.com/demo",
+     success: function(data) {
+       console.log('DEMO LEADERBOARD!!');      
+       console.log(data);
+     },
+     failure: function(err) {
+       console.log('Could not fetch leaderboard: ' + err);    
+     }
+   });
+   // get the open challenges
+   $.ajax({
+     type: 'GET',
+     url: "http://tc-search.herokuapp.com/challenges/search?q=challengeName:Cisco",
+     success: function(data) {
+       console.log('CISCO CHALLENGES!!');  
+       console.log(JSON.parse(data));
+     },
+     failure: function(err) {
+       console.log('Could not fetch open challenges: ' + err);    
+     }
+   });
+});
+// ]]>
+</script>  
+
   <script src="/scripts/museutils.js" type="text/javascript"></script>
   <script src="/scripts/jquery.scrolleffects.js" type="text/javascript"></script>
   <script src="/scripts/jquery.tobrowserwidth.js" type="text/javascript"></script>
