@@ -16,14 +16,14 @@ $(document).ready(function(e) {
      type: 'GET',
      url: "http://tc-leaderboard.herokuapp.com/cisco", 
      success: function(data) {
-       console.log('DEMO LEADERBOARD!!');      
+       console.log('CISCO LEADERBOARD!!');      
        console.log(data);
      },
      failure: function(err) {
        console.log('Could not fetch leaderboard: ' + err);    
      }
    });
-   // get the open challenges
+   // get all challenges with the name 'cisco' -- see http://tc-search.herokuapp.com more search options
    $.ajax({
      type: 'GET',
      url: "http://tc-search.herokuapp.com/challenges/search?q=challengeName:Cisco",
